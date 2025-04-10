@@ -39,6 +39,8 @@ ATRIBUICAO = ":="
 MULTIPLICACAO = "*"
 SUBTRACAO = "-"
 DIVISAO = "/"
+INTEIRO = 0|[1-9][0-9]*
+ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
 
 
 %%
@@ -51,10 +53,20 @@ DIVISAO = "/"
 {FECHAPARENTESE} { token = new Token(yyline, yycolumn, yytext(), "Fecha parêntese"); token.imprimir(); }
 {PONTOEVIRGULA}  { token = new Token(yyline, yycolumn, yytext(), "Ponto e vírgula"); token.imprimir(); }
 {ATRIBUICAO}     { token = new Token(yyline, yycolumn, yytext(), "Atribuição"); token.imprimir(); }
-{MULTIPLICACAO}     { token = new Token(yyline, yycolumn, yytext(), "Comparação"); token.imprimir(); }   
+{MENORQUE}       { token = new Token(yyline, yycolumn, yytext(), "Menor que"); token.imprimir(); }
+{VIRGULA}        { token = new Token(yyline, yycolumn, yytext(), "Virgula"); token.imprimir(); }
+{ASPAS}          { token = new Token(yyline, yycolumn, yytext(), "Aspas"); token.imprimir(); }
+{MULTIPLICACAO}  { token = new Token(yyline, yycolumn, yytext(), "Multiplicacao"); token.imprimir(); }   
+{SUBTRACAO}      { token = new Token(yyline, yycolumn, yytext(), "Substracao"); token.imprimir(); }
+{DIVISAO}        { token = new Token(yyline, yycolumn, yytext(), "Divisao"); token.imprimir(); }
 "if"             { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada if"); token.imprimir(); }
 "then"           { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada then"); token.imprimir(); }
 "writeln"        { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada writeln"); token.imprimir(); }
+"else"           { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada else"); token.imprimir(); }
+"begin"          { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada begin"); token.imprimir(); }
+"sqrt"           { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada sqrt"); token.imprimir(); }
+"end"            { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada end"); token.imprimir(); }
+"delta"          { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada delta"); token.imprimir(); }
 {BRANCO}         { token = new Token(yyline, yycolumn, yytext(), "Espaço em branco"); token.imprimir(); }
 {ID}             { token = new Token(yyline, yycolumn, yytext(), "Identificador"); token.imprimir(); }
 {SOMA}           { token = new Token(yyline, yycolumn, yytext(), "Operador de soma"); token.imprimir(); }
